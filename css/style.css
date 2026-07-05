@@ -748,6 +748,7 @@ ul.wip-list .coauthors {
 }
 
 .cv-section {
+  scroll-margin-top: 84px;
   display: grid;
   grid-template-columns: 190px 1fr;
   gap: 10px 30px;
