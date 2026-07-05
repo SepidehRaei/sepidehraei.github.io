@@ -317,6 +317,22 @@ main {
   text-align: center;
 }
 
+a.stat {
+  display: block;
+  border-bottom: none;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+a.stat:hover {
+  background: var(--bg-soft);
+  border-bottom: none;
+}
+
+a.stat:hover .n {
+  color: var(--accent);
+}
+
 .stats .n {
   font-family: var(--serif);
   font-size: 30px;
