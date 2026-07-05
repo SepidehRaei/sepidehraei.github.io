@@ -1,0 +1,304 @@
+/* Replicated from the Weebly "Paper Trail" style theme used on sepidehraei.weebly.com */
+
+:root {
+  --title-color: #215d80;
+  --body-text: #170e51;
+  --muted-text: #3f3f3f;
+  --accent: #24678d;
+  --link-color: #205a7b;
+  --section-bg: #fcfeff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--body-text);
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-position: 50% 41%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: var(--section-bg);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #205878;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+
+#header-wrap {
+  background: rgba(252, 254, 255, 0.95);
+  border-bottom: 1px solid #e3e9ee;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 22px 20px;
+}
+
+#logo a {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: var(--title-color);
+  text-decoration: none;
+}
+
+nav.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+nav.site-nav a {
+  font-family: "Actor", "Karla", sans-serif;
+  display: block;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: var(--muted-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav.site-nav a:hover,
+nav.site-nav li.active a {
+  color: var(--title-color);
+  border-bottom: 2px solid var(--title-color);
+}
+
+/* Mobile nav toggle */
+#nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--title-color);
+}
+
+/* ---------- Main content ---------- */
+
+#main-wrap {
+  background-color: var(--section-bg);
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 60vh;
+  padding: 40px 30px 60px;
+}
+
+h2.wsite-content-title {
+  font-family: "Droid Sans", "Verdana", sans-serif;
+  font-size: 27px;
+  margin-bottom: 16px;
+}
+
+.paragraph {
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+  color: #13094d;
+  margin: 30px 0 10px;
+}
+
+.styled-hr {
+  border: 0;
+  border-top: 1px solid #d7dee4;
+  margin: 40px 0;
+}
+
+/* Home page two-column layout */
+
+.home-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.home-columns .photo {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.home-columns .photo img {
+  width: auto;
+  max-width: 100%;
+  border: 1px solid #dcdcdc;
+  padding: 4px;
+  background: #fff;
+}
+
+.home-columns .intro {
+  flex: 2 1 420px;
+  text-align: center;
+  color: var(--muted-text);
+}
+
+.home-columns .intro .lead {
+  font-weight: bold;
+  color: var(--muted-text);
+}
+
+.contact-label {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* Research page */
+
+.pub-list {
+  text-align: justify;
+}
+
+.pub-list ul {
+  margin: 18px 0 6px 24px;
+}
+
+.pub-title a {
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.pub-meta {
+  font-style: italic;
+  color: #626262;
+}
+
+.abstract {
+  font-style: italic;
+  font-size: 15px;
+  color: var(--body-text);
+  margin: 8px 0 20px 24px;
+}
+
+/* Teaching page */
+
+.teaching h3 {
+  font-size: 22px;
+  color: var(--accent);
+  margin: 28px 0 8px;
+}
+
+.teaching h3 .subtitle {
+  font-size: 18px;
+}
+
+.teaching ul {
+  margin: 8px 0 8px 28px;
+  color: #2a2a2a;
+}
+
+/* CV page */
+
+.wsite-button {
+  display: inline-block;
+  background: var(--title-color);
+  color: #fff;
+  font-family: "Bree Serif", Georgia, serif;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.wsite-button:hover {
+  background: #1a4a66;
+  color: #fff;
+}
+
+.small-note {
+  font-size: 13px;
+  color: var(--muted-text);
+}
+
+/* ---------- Footer ---------- */
+
+#footer-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--section-bg);
+  border-top: 1px solid #e3e9ee;
+  padding: 20px 30px;
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  #header {
+    padding: 16px 20px;
+  }
+
+  #logo a {
+    font-size: 26px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav.site-nav {
+    display: none;
+    width: 100%;
+  }
+
+  #nav-toggle:checked ~ nav.site-nav {
+    display: block;
+  }
+
+  nav.site-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 10px;
+  }
+
+  .home-columns .intro {
+    text-align: center;
+  }
+}

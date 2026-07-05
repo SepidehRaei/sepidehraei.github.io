@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-site",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/private/tmp/claude-502/-Users-a02287748-Documents-GitHub-sepidehraei/f537abdd-44f4-43ff-b3d9-dc060a3c9a5f/scratchpad/site", "-p", "8080"],
+      "port": 8080
+    }
+  ]
+}
