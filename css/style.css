@@ -717,25 +717,179 @@ ul.wip-list .coauthors {
 
 /* ---------- CV ---------- */
 
-.cv-card {
-  background: var(--bg-soft);
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-  padding: 40px;
-  text-align: center;
-  max-width: 480px;
-  margin: 24px auto 0;
+.cv-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 
-.cv-card p {
-  margin-bottom: 22px;
+.cv-head .updated {
+  font-size: 13.5px;
   color: var(--muted);
+}
+
+.cv-section {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 10px 30px;
+  padding: 26px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.cv-section > h2 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.cv-section > div {
+  min-width: 0;
+}
+
+.cv-item {
+  margin-bottom: 14px;
+}
+
+.cv-item:last-child {
+  margin-bottom: 0;
+}
+
+.cv-item .what {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.cv-item .what em {
+  font-weight: 400;
+}
+
+.cv-item .where {
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.cv-pub {
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.cv-pub:last-child {
+  margin-bottom: 0;
+}
+
+.cv-pub .t {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.cv-pub .j {
+  font-style: italic;
+}
+
+.cv-year-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0 16px;
+  margin-bottom: 12px;
+  font-size: 14.5px;
+}
+
+.cv-year-row:last-child {
+  margin-bottom: 0;
+}
+
+.cv-year-row .y {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  padding-top: 2px;
+}
+
+.cv-plain {
+  font-size: 15px;
 }
 
 .small-note {
   font-size: 13.5px;
   color: var(--muted);
   margin-top: 18px;
+}
+
+/* ---------- Print (Download PDF renders this page) ---------- */
+
+@media print {
+  #header-wrap,
+  #footer-wrap,
+  .cv-head .cta-row,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: #000;
+  }
+
+  main {
+    padding: 0;
+    min-height: 0;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .page-subtitle {
+    margin-bottom: 14px;
+    font-size: 12px;
+  }
+
+  .cv-section {
+    padding: 12px 0;
+    grid-template-columns: 150px 1fr;
+    gap: 6px 20px;
+    break-inside: avoid-page;
+  }
+
+  .cv-section.allow-break {
+    break-inside: auto;
+  }
+
+  .cv-section > h2 {
+    font-size: 13px;
+  }
+
+  .cv-item,
+  .cv-pub {
+    margin-bottom: 8px;
+  }
+
+  .cv-pub,
+  .cv-plain,
+  .cv-year-row {
+    font-size: 11.5px;
+  }
+
+  .cv-item .where {
+    font-size: 11px;
+  }
+
+  a {
+    color: #000;
+    border-bottom: none;
+  }
 }
 
 /* ---------- Footer ---------- */
