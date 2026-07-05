@@ -1,12 +1,17 @@
-/* Replicated from the Weebly "Paper Trail" style theme used on sepidehraei.weebly.com */
+/* Redesign (dev branch): clean, professional academic style.
+   No background image — white canvas, serif display type, restrained accent color. */
 
 :root {
-  --title-color: #215d80;
-  --body-text: #170e51;
-  --muted-text: #3f3f3f;
-  --accent: #24678d;
-  --link-color: #205a7b;
-  --section-bg: #fcfeff;
+  --ink: #1a2332;
+  --body-text: #333d4d;
+  --muted: #6b7686;
+  --accent: #1f5673;
+  --accent-dark: #16405a;
+  --rule: #e4e8ee;
+  --bg: #ffffff;
+  --bg-soft: #f7f9fb;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -20,38 +25,40 @@ html {
 }
 
 body {
-  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--sans);
   font-size: 16px;
-  line-height: 28px;
+  line-height: 1.7;
   color: var(--body-text);
-  background-image: url("../images/background.png");
-  background-repeat: no-repeat;
-  background-position: 50% 41%;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: var(--section-bg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--link-color);
-  text-decoration: underline;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 a:hover {
-  color: #205878;
+  color: var(--accent-dark);
+  border-bottom-color: currentColor;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 /* ---------- Header ---------- */
 
 #header-wrap {
-  background: rgba(252, 254, 255, 0.95);
-  border-bottom: 1px solid #e3e9ee;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 #header {
@@ -59,40 +66,43 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 22px 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #logo a {
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: -2px;
-  text-transform: uppercase;
-  color: var(--title-color);
-  text-decoration: none;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  border-bottom: none;
 }
 
 nav.site-nav ul {
   list-style: none;
   display: flex;
-  gap: 8px;
+  gap: 28px;
 }
 
 nav.site-nav a {
-  font-family: "Actor", "Karla", sans-serif;
-  display: block;
-  padding: 10px 16px;
-  font-size: 15px;
-  color: var(--muted-text);
-  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  color: var(--muted);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
 }
 
-nav.site-nav a:hover,
+nav.site-nav a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
 nav.site-nav li.active a {
-  color: var(--title-color);
-  border-bottom: 2px solid var(--title-color);
+  color: var(--ink);
+  border-bottom-color: var(--accent);
 }
 
 /* Mobile nav toggle */
@@ -102,181 +112,373 @@ nav.site-nav li.active a {
 
 .hamburger {
   display: none;
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
-  color: var(--title-color);
+  color: var(--ink);
+  line-height: 1;
 }
 
-/* ---------- Main content ---------- */
+/* ---------- Page scaffolding ---------- */
 
-#main-wrap {
-  background-color: var(--section-bg);
-  max-width: 1100px;
-  margin: 0 auto;
-  min-height: 60vh;
-  padding: 40px 30px 60px;
+main {
+  padding: 56px 0 72px;
+  min-height: 62vh;
 }
 
-h2.wsite-content-title {
-  font-family: "Droid Sans", "Verdana", sans-serif;
-  font-size: 27px;
-  margin-bottom: 16px;
+.page-title {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
 }
 
-.paragraph {
-  margin-bottom: 16px;
+.page-subtitle {
+  color: var(--muted);
+  margin-bottom: 40px;
 }
 
-.section-heading {
+h2.section-heading {
+  font-family: var(--serif);
   font-size: 24px;
-  font-style: italic;
-  font-weight: bold;
-  color: #13094d;
-  margin: 30px 0 10px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 48px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
 }
 
-.styled-hr {
-  border: 0;
-  border-top: 1px solid #d7dee4;
-  margin: 40px 0;
+h2.section-heading:first-of-type {
+  margin-top: 0;
 }
 
-/* Home page two-column layout */
+/* ---------- Home ---------- */
 
-.home-columns {
+.hero {
   display: flex;
+  gap: 48px;
   align-items: flex-start;
-  gap: 30px;
   flex-wrap: wrap;
-  padding-top: 20px;
 }
 
-.home-columns .photo {
-  flex: 1 1 300px;
-  text-align: center;
+.hero .photo {
+  flex: 0 0 260px;
 }
 
-.home-columns .photo img {
-  width: auto;
-  max-width: 100%;
-  border: 1px solid #dcdcdc;
-  padding: 4px;
-  background: #fff;
+.hero .photo img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(26, 35, 50, 0.14);
 }
 
-.home-columns .intro {
-  flex: 2 1 420px;
-  text-align: center;
-  color: var(--muted-text);
+.hero .intro {
+  flex: 1 1 380px;
 }
 
-.home-columns .intro .lead {
-  font-weight: bold;
-  color: var(--muted-text);
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 12px;
 }
 
-.contact-label {
-  font-weight: bold;
-  color: var(--accent);
-}
-
-/* Research page */
-
-.pub-list {
-  text-align: justify;
-}
-
-.pub-list ul {
-  margin: 18px 0 6px 24px;
-}
-
-.pub-title a {
-  color: var(--accent);
+.hero .role {
   font-size: 18px;
-  font-weight: bold;
-  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 24px;
 }
 
-.pub-meta {
-  font-style: italic;
-  color: #626262;
+.hero .lead {
+  font-size: 17px;
+  margin-bottom: 28px;
 }
 
-.abstract {
-  font-style: italic;
-  font-size: 15px;
-  color: var(--body-text);
-  margin: 8px 0 20px 24px;
+.interests {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
-/* Teaching page */
+.interests span {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--accent-dark);
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
 
-.teaching h3 {
-  font-size: 22px;
+.contact-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 22px 26px;
+}
+
+.contact-card h2 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.contact-card dl {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  row-gap: 4px;
+}
+
+.contact-card dt {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 27px;
+}
+
+.contact-card dd {
+  margin: 0;
+}
+
+/* ---------- Research ---------- */
+
+.pub {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pub:last-child {
+  border-bottom: none;
+}
+
+.pub .title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.pub .title a {
+  color: inherit;
+}
+
+.pub .title a:hover {
   color: var(--accent);
+}
+
+.pub .meta {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.pub .meta .journal {
+  font-style: italic;
+}
+
+.pub .links {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pub .links a {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+
+.pub .links a:hover {
+  border-color: var(--accent);
+  background: var(--bg-soft);
+}
+
+.pub details {
+  margin-top: 10px;
+}
+
+.pub summary {
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.pub summary:hover {
+  color: var(--accent);
+}
+
+.pub details p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--body-text);
+  margin-top: 10px;
+  padding-left: 16px;
+  border-left: 3px solid var(--rule);
+}
+
+ul.wip-list {
+  list-style: none;
+}
+
+ul.wip-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+ul.wip-list li:last-child {
+  border-bottom: none;
+}
+
+ul.wip-list .title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+ul.wip-list .coauthors {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ---------- Teaching ---------- */
+
+.teaching-block {
+  margin-bottom: 8px;
+}
+
+.teaching-block h3 {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
   margin: 28px 0 8px;
 }
 
-.teaching h3 .subtitle {
-  font-size: 18px;
+.teaching-block h3 .subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted);
 }
 
-.teaching ul {
-  margin: 8px 0 8px 28px;
-  color: #2a2a2a;
+.teaching-block p.level {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 14px;
 }
 
-/* CV page */
+.teaching-block ul {
+  list-style: none;
+  margin-top: 6px;
+}
 
-.wsite-button {
+.teaching-block li {
+  padding: 7px 0 7px 18px;
+  position: relative;
+}
+
+.teaching-block li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
+.award-year {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- CV ---------- */
+
+.cv-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  max-width: 480px;
+  margin: 24px auto 0;
+}
+
+.cv-card p {
+  margin-bottom: 22px;
+  color: var(--muted);
+}
+
+.button {
   display: inline-block;
-  background: var(--title-color);
+  background: var(--accent);
   color: #fff;
-  font-family: "Bree Serif", Georgia, serif;
-  font-size: 16px;
-  padding: 14px 28px;
-  border-radius: 3px;
-  text-decoration: none;
-  margin: 10px 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 13px 30px;
+  border-radius: 6px;
+  border-bottom: none;
+  transition: background 0.15s ease;
 }
 
-.wsite-button:hover {
-  background: #1a4a66;
+.button:hover {
+  background: var(--accent-dark);
   color: #fff;
+  border-bottom: none;
 }
 
 .small-note {
-  font-size: 13px;
-  color: var(--muted-text);
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-top: 18px;
 }
 
 /* ---------- Footer ---------- */
 
 #footer-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--section-bg);
-  border-top: 1px solid #e3e9ee;
-  padding: 20px 30px;
-  font-size: 13px;
-  color: #777;
-  text-align: center;
+  border-top: 1px solid var(--rule);
+  padding: 26px 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+#footer-wrap .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 /* ---------- Responsive ---------- */
 
-@media screen and (max-width: 767px) {
-  body {
-    font-size: 15px;
-    line-height: 25px;
-  }
-
+@media screen and (max-width: 720px) {
   #header {
-    padding: 16px 20px;
-  }
-
-  #logo a {
-    font-size: 26px;
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
   .hamburger {
@@ -295,10 +497,34 @@ h2.wsite-content-title {
   nav.site-nav ul {
     flex-direction: column;
     gap: 0;
-    padding-top: 10px;
+    padding: 10px 0 6px;
   }
 
-  .home-columns .intro {
-    text-align: center;
+  nav.site-nav a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  main {
+    padding: 36px 0 56px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero .photo {
+    flex-basis: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .contact-card dl {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card dt {
+    line-height: 1.4;
+    margin-top: 8px;
   }
 }
