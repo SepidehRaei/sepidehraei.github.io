@@ -4,7 +4,14 @@
     {
       "name": "static-site",
       "runtimeExecutable": "ruby",
-      "runtimeArgs": ["-run", "-e", "httpd", "/private/tmp/claude-502/-Users-a02287748-Documents-GitHub-sepidehraei/f537abdd-44f4-43ff-b3d9-dc060a3c9a5f/scratchpad/site", "-p", "8080"],
+      "runtimeArgs": [
+        "-run",
+        "-e",
+        "httpd",
+        "/private/tmp/claude-502/-Users-a02287748-Documents-GitHub-sepidehraei/43a5f0fb-6bff-4b19-b332-34eefd0cbd33/scratchpad/site",
+        "-p",
+        "8080"
+      ],
       "port": 8080
     }
   ]
